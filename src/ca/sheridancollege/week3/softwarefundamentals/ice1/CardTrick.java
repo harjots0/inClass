@@ -29,6 +29,10 @@ public class CardTrick {
         }
 
         System.out.println("Magic Hand:");
+
+        Card luckyCard = new Card(1, "Spades");
+        System.out.println("The lucky card is: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
+        
         for (Card card : magicHand) {
             System.out.println(card);
         }
@@ -56,5 +60,8 @@ public class CardTrick {
         } else {
             System.out.println("The card is not in the magic hand.");
         }
+        if (userValue == luckyCard.getValue() && Suit.equalsIgnoreCase(luckyCard.getSuit())) {
+            System.out.println("Wow! You picked the lucky card!");
+        }
     }
 }
