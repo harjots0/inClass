@@ -13,13 +13,11 @@ package ca.sheridancollege.week3.softwarefundamentals.ice1;
  * @modifier HarjotSingh - 991731364
  */
 import java.util.Random;
-import java.util.Scanner;
-
 
 public class CardTrick {
     public static void main(String[] args) {
         Card[] magicHand = new Card[7];
-        Random random1 = new Random(); // creating a random instance
+        Random random1 = new Random();
 
         for (int i = 0; i < magicHand.length; i++) {
             Card c = new Card();
@@ -28,40 +26,21 @@ public class CardTrick {
             magicHand[i] = c;
         }
 
-        System.out.println("Magic Hand:");
-
         Card luckyCard = new Card(1, "Spades");
         System.out.println("The lucky card is: " + luckyCard.getValue() + " of " + luckyCard.getSuit());
-        
-        for (Card card : magicHand) {
-            System.out.println(card);
-        }
-
-        int value;
-        String Suit;
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Pick a card value between 1 and 13: ");
-            value = scanner.nextInt();
-            scanner.nextLine();
-            System.out.print("Pick a suit (Hearts, Diamonds, Spades, Clubs): ");
-            Suit = scanner.nextLine();
-        }
 
         boolean found = false;
         for (Card card : magicHand) {
-            if (card.getValue() == value && card.getSuit().equalsIgnoreCase(Suit)) {
+            System.out.println(card);
+            if (card.getValue() == luckyCard.getValue() && card.getSuit().equalsIgnoreCase(luckyCard.getSuit())) {
                 found = true;
-                break;
             }
         }
 
         if (found) {
-            System.out.println("The card is in the magic hand!");
+            System.out.println("Congratulations! The lucky card is in the magic hand!");
         } else {
-            System.out.println("The card is not in the magic hand.");
+            System.out.println("Sorry! The lucky card is not in the magic hand.");
         }
-        if (userValue == luckyCard.getValue() && Suit.equalsIgnoreCase(luckyCard.getSuit())) {
-            System.out.println("Wow! You picked the lucky card!");
-        }
     }
 }
